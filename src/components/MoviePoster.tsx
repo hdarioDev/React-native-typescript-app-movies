@@ -3,20 +3,23 @@ import React from 'react'
 import { Movie } from '../interfaces/movieInterface'
 
 interface Props {
-    movie: Movie
+    movie: Movie,
+    height?: number,
+    width?: number
 }
 
-const MoviePoster = ({ movie }: Props) => {
-    console.log(movie.poster_path);
+const MoviePoster = ({ movie, height = 480, width = 300 }: Props) => {
+    // console.log(movie.poster_path);
     const uri = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     //https://image.tmdb.org/t/p/w500/nODIZa8p2Y31CKlp5JS0LFRmeXF.jpg
 
     return (
         <View
             style={{
-                width: 300,
-                height: 480,
+                width,
+                height,
                 paddingVertical: 20,
+                marginHorizontal: 10
             }}
         >
             <View
