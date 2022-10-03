@@ -11,10 +11,9 @@ interface Props {
 const HorizontalSlider = ({ movies, title }: any) => {
     return (
         <View style={{
-            // backgroundColor: 'gray',
             height: (!!title) ? 235 : 220,
-            marginBottom: 12
-            // paddingVertical: 16
+            marginBottom: 12,
+            // paddingBottom: 8
         }}>
             <Text style={{
                 fontSize: 30, fontWeight: 'bold', marginLeft: 8, marginBottom: 8
@@ -26,17 +25,15 @@ const HorizontalSlider = ({ movies, title }: any) => {
                     <MoviePoster
                         movie={item}
                         width={140}
-                        height={200}
+                        height={170}
                     />
                 )}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
             />
-
         </View>
     )
 }
 
 export default HorizontalSlider
-
 const styles = StyleSheet.create({})

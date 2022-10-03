@@ -26,14 +26,12 @@ export const useMovies = () => {
             topRatedPromise,
             upcomingPromise
         ])
-
         setMoviesState({
             nowPlaying: response[0].data.results,
             popular: response[1].data.results,
             topRated: response[2].data.results,
             upcoming: response[3].data.results,
         })
-
         setIsLoading(false)
     }
 

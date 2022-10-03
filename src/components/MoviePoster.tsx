@@ -1,6 +1,7 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { Movie } from '../interfaces/movieInterface'
+import { useNavigation } from '@react-navigation/native'
 
 interface Props {
     movie: Movie,
@@ -12,14 +13,17 @@ const MoviePoster = ({ movie, height = 480, width = 300 }: Props) => {
     // console.log(movie.poster_path);
     const uri = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     //https://image.tmdb.org/t/p/w500/nODIZa8p2Y31CKlp5JS0LFRmeXF.jpg
-
+    const navigation = useNavigation<any>()
     return (
-        <View
+        <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate('Detail', movie)}
             style={{
                 width,
                 height,
                 // paddingVertical: 16,
-                marginHorizontal: 10
+                marginHorizontal: 8,
+                paddingBottom: 18
             }}
         >
             <View
@@ -31,7 +35,7 @@ const MoviePoster = ({ movie, height = 480, width = 300 }: Props) => {
                 />
             </View>
 
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -40,16 +44,18 @@ export default MoviePoster
 const styles = StyleSheet.create({
     imageContainer: {
         flex: 1,
+        // overflow: 'hidden',
+        backgroundColor: 'red',
         borderRadius: 18,
         shadowColor: "#000",
         shadowOffset: {
-            width: 1,
-            height: 5,
+            width: 0,
+            height: 6,
         },
-        shadowOpacity: 1.36,
-        shadowRadius: 6.68,
-        paddingBottom: 20,
-        elevation: 11,
+        shadowOpacity: 0.37,
+        shadowRadius: 7.49,
+
+        elevation: 12,
     },
     image: {
         flex: 1,
