@@ -18,7 +18,7 @@ const MoviePoster = ({ movie, height = 480, width = 300 }: Props) => {
             style={{
                 width,
                 height,
-                paddingVertical: 20,
+                // paddingVertical: 16,
                 marginHorizontal: 10
             }}
         >
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 1.36,
         shadowRadius: 6.68,
-
+        paddingBottom: 20,
         elevation: 11,
     },
     image: {

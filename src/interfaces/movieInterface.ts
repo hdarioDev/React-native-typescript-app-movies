@@ -1,5 +1,5 @@
-export interface IResponseMoviePLayNow {
-    dates: Dates;
+export interface IResponseMovies {
+    dates?: Dates;
     page: number;
     results: Movie[];
     total_pages: number;

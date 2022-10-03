@@ -12,8 +12,15 @@ const { width: windowWidth } = Dimensions.get('window')
 const Home = () => {
     const { top } = useSafeAreaInsets()
     // const navigation = useNavigation<any>()
-    const { moviesNow, isLoading } = useMovies()
+    const {
+        nowPlaying,
+        popular,
+        topRated,
+        upcoming,
+        isLoading
+    } = useMovies()
     // console.log(JSON.stringify(moviesNow, null, 2));
+
 
     if (isLoading) {
         return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -23,19 +30,21 @@ const Home = () => {
 
     return (
         <ScrollView>
-            <View style={{ marginTop: top }}>
+            <View style={{ marginTop: top, marginBottom: 20 }}>
+                {/* <View style={{ height: 500 }} > */}
                 <Carousel
-                    data={moviesNow}
+                    data={nowPlaying!}
                     renderItem={({ item }) => <MoviePoster movie={item} />}
                     sliderWidth={windowWidth}
                     itemWidth={300}
+                    inactiveSlideOpacity={0.6}
                 />
+                {/* </View> */}
+                <HorizontalSlider movies={popular} title="Popular" />
 
-                <HorizontalSlider moviesNow={moviesNow} title="Title 1 " />
+                <HorizontalSlider movies={topRated} title="Top Rated" />
 
-                <HorizontalSlider moviesNow={moviesNow} title="Title 2 " />
-
-                <HorizontalSlider moviesNow={moviesNow} title="Title 3 " />
+                <HorizontalSlider movies={upcoming} title="Upcoming " />
 
             </View>
         </ScrollView>
