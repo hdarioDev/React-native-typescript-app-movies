@@ -22,8 +22,10 @@ const MoviePoster = ({ movie, height = 480, width = 300 }: Props) => {
                 width,
                 height,
                 // paddingVertical: 16,
-                marginHorizontal: 8,
-                paddingBottom: 18
+                marginHorizontal: 0,
+                paddingBottom: 16,
+                paddingLeft: 16,
+                // backgroundColor: 'cyan'
             }}
         >
             <View

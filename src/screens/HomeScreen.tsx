@@ -27,7 +27,7 @@ const Home = () => {
 
     return (
         <ScrollView>
-            <View style={{ marginTop: top + 20, marginBottom: 20 }}>
+            <View style={{ marginTop: top + 20, marginBottom: 10 }}>
                 {/* <View style={{ height: 500 }} > */}
                 <Carousel
                     data={nowPlaying!}

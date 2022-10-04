@@ -11,12 +11,13 @@ interface Props {
 const HorizontalSlider = ({ movies, title }: any) => {
     return (
         <View style={{
-            height: (!!title) ? 235 : 220,
-            marginBottom: 12,
+            height: (!!title) ? 216 : 220,
+            marginBottom: 0,
+            // backgroundColor: 'red'
             // paddingBottom: 8
         }}>
             <Text style={{
-                fontSize: 30, fontWeight: 'bold', marginLeft: 8, marginBottom: 8
+                fontSize: 30, fontWeight: 'bold', marginLeft: 8, marginBottom: 6
             }} >{title}</Text>
             <FlatList
                 data={movies}
