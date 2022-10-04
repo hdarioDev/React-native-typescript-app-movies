@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
     imageContainer: {
         flex: 1,
         // overflow: 'hidden',
-        backgroundColor: 'red',
         borderRadius: 18,
         shadowColor: "#000",
         shadowOffset: {
