@@ -23,7 +23,7 @@ const DetailScreen = ({ route, navigation }: Props) => {
         movieDetail,
         cast
     } = useMovieDetails(movie.id)
-    console.log("cast --> ", cast);
+    // console.log("cast --> ", cast);
 
     const { top } = useSafeAreaInsets()
     return (
