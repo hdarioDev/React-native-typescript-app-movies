@@ -31,6 +31,4 @@ export const getImageColors = async (uri: string) => {
         primary,
         secundary
     }
-
-
 }
