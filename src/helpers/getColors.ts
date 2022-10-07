@@ -7,13 +7,13 @@ export const getImageColors = async (uri: string) => {
         // key: 'unique_key',
     })
     let primary;
-    let secundary;
+    let secondary;
 
     switch (colors.platform) {
         case 'android':
             // android colors properties
             primary = colors.dominant;
-            secundary = colors.average;
+            secondary = colors.average;
             break
         // case 'web':
         //   // web colors properties
@@ -22,13 +22,13 @@ export const getImageColors = async (uri: string) => {
         case 'ios':
             // iOS colors properties
             primary = colors.primary;
-            secundary = colors.secondary;
+            secondary = colors.secondary;
             break
         default:
             throw new Error('Unexpected platform key')
     }
     return {
         primary,
-        secundary
+        secondary
     }
 }

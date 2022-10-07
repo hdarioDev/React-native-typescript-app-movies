@@ -1,19 +1,19 @@
 import { ActivityIndicator, Dimensions, ScrollView, StyleSheet, View } from 'react-native'
 import 'react-native-gesture-handler';
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useMovies } from '../hooks/useMovies';
 import MoviePoster from '../components/MoviePoster';
 import Carousel from 'react-native-snap-carousel';
 import HorizontalSlider from '../components/HorizontalSlider';
 import GradientBackground from '../components/GradientBackground';
-import ImageColors from 'react-native-image-colors'
 import { getImageColors } from '../helpers/getColors';
+import { GradientContext } from '../context/GradientContext';
 
 const { width: windowWidth } = Dimensions.get('window')
 const Home = () => {
     const { top } = useSafeAreaInsets()
-    // const navigation = useNavigation<any>()
+    const { setMainColors, setMainPrevColors } = useContext(GradientContext)
     const {
         nowPlaying,
         popular,
@@ -22,31 +22,29 @@ const Home = () => {
         isLoading
     } = useMovies()
 
+    useEffect(() => {
+        if (nowPlaying && nowPlaying.length > 0) {
+            getPosterindex(0)
+        }
+    }, [nowPlaying])
+
     if (isLoading) {
         return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <ActivityIndicator size={40} />
         </View>
     }
 
+
+
     const getPosterindex = async (index: number) => {
-
         console.log({ index })
-
-
         if (nowPlaying) {
             const uri = `https://image.tmdb.org/t/p/w500/${nowPlaying[index].poster_path}`
-            const { primary, secundary } = await getImageColors(uri)
-            // console.log({ result });
+            const { primary = 'black', secondary = 'gray' } = await getImageColors(uri)
             console.log({ primary });
-            console.log({ secundary });
-
-            // console.log(uri);
-            // console.log(nowPlaying[index].title)
-
+            console.log({ secondary });
+            setMainColors({ primary, secondary })
         }
-
-
-
     }
 
     return (
