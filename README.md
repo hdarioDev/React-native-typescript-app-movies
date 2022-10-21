@@ -1,10 +1,10 @@
-# React Native Pokemon APP
+# React Movie APP
 
 Use React Native CLI  and TypeScript 
 
 # Api Reference
 
-https://pokeapi.co
+https://www.themoviedb.org/
 
 
 
